@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href = "./static/css/me.css">
+</head>
+<body>
+<!--导航-->
+<nav class = "ui inverted attached segment m-padded-tb-mini margin-top-large">
+    <div class = "ui container">
+        <div class = "ui inverted secondary stackable menu">
+            <h2 class = "ui teal header item">Jason's Blog</h2>
+            <a href = "#" class = "m-item item m-mobile-hide"><i class = "home icon"></i>Home</a>
+            <a href = "#" class = "m-item item m-mobile-hide"><i class = "idea icon"></i>Categories</a>
+            <a href = "#" class = "m-item item m-mobile-hide"><i class = "tag icon"></i>Tags</a>
+            <a href = "#" class = "m-item item m-mobile-hide"><i class = "clone icon"></i>Collection</a>
+            <a href = "#" class = "m-item item m-mobile-hide"><i class = "info icon"></i>About me</a>
+            <div class = "right m-item item m-mobile-hide">
+                <div class = "ui icon inverted transparent input">
+                    <input type = "text" placeholder="Search...">
+                    <i class = "search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href = "#" class = "ui menu toggle black icon button m-top-right m-mobile-show">
+        <i class = "sidebar icon"></i>
+    </a>
+</nav>
+
+
+<!--中间内容-->
+<div class = "m-padded-tb-large m-container-small margin-top-big">
+    <div class = "ui container">
+        <div class = "ui top attached segment"> <!--这里top attached 就是可以和上面拼接,然后是圆角的-->
+            <!--头部区域-->
+            <div class = "ui horizontal link list">
+                <div class = "ui item">
+                    <img src ="https://picsum.photos/100/100/?random" alt = "" class = "ui avatar image">
+                    <div class = "ui content">
+                        <a href = "#" class = "ui header m-text-thin">Jason Xie</a>
+                    </div>
+                </div>
+                <div class = "ui item">
+                    <i class = "calendar icon"></i> 2019-01-01
+                </div>
+                <div class = "ui item">
+                    <i class = "eye icon"></i> 12345
+                </div>
+            </div>
+        </div>
+        <div class = "ui attached segment">
+            <!--图片区域-->
+            <img alt = "" class = "ui fluid rounded image" src="https://picsum.photos/800/450/?random">
+        </div>
+        <div class = "ui attached padded segment">
+            <!--内容-->
+            <div class = "ui right aligned basic segment">
+                <div class = "ui basic label orange">
+                    Original
+                </div>
+            </div>
+
+            <h2 class = "ui center aligned header">Leetcode 126. Word Ladder II</h2>
+            <br>
+            <div id = "content" class = "m-padded-lr-responsive m-padded-tb-large">
+                题目链接：https://leetcode.com/problems/word-ladder-ii/description/
+                Word Ladder的升级版，这题不仅是说判断能否转化，还需要我们来找到所有的转化路径。双重暴击！！难度暴增！！
+                题目还是很好的给了一些notes：
+                Return an empty list if there is no such transformation sequence.
+                All words have the same length.
+                All words contain only lowercase alphabetic characters.
+                You may assume no duplicates in the word list.
+                You may assume beginWord and endWord are non-empty and are not the same.
+                这个题分为两步：第一步BFS：找到最短路径，同时找到每个string能够从哪些string被转化而来
+                第二步DFS：找到所有的最短路径.dfs构图。为了让dfs能够图，在bfs的时候就应该建立一个graph，也就是某一个string 能够由哪些string得来。
+                用hash map就可以建表。最后dfs的时候记录路径，结束的时候判断下是不是endWord 是就push进入result
+            </div>
+            <br>
+            <!--Tags 标签-->
+            <div class = "m-padded-lr-responsive m-padded-tb-large">
+                <div class = "ui basic teal left pointing label">Leetcode</div>
+                <div class = "ui basic teal left pointing label">C++</div>
+            </div>
+
+            <!--Tips 赞赏功能-->
+            <div class = "ui center aligned basic segment">
+                <button id = "payButton" class = "ui orange basic circular button">
+                    Tips
+                </button>
+            </div>
+            <!--支付宝 微信二维码-->
+            <div class = "ui payQR following popup transition hidden">
+                <div class = "ui orange basic label">
+                    <div class = "ui images" style = "font-size: inherit !important">
+                        <div class="image">
+                            <div>Wechat Pay: </div>
+                            <img class = "ui rounded bordered image" style = "width: 120px" src="./static/img/Wechat_Pay.jpg">
+                        </div>
+                        <div class="image">
+                            <div>Ali Pay: </div>
+                            <img class = "ui rounded bordered image" style = "width: 120px" src="./static/img/Ali_Pay.jpg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class = "ui attached positive message">
+            blog information 博客信息
+            <div class = "ui middle aligned grid">
+                <div class = "eleven wide column">
+                    <ui class = "list">
+                        <li>Author: Jason Xie</li>
+                        <li>Post time: 2019-04-06</li>
+                        <li>Copy Right: ........</li>
+                        <li>公众号转载说明</li>
+                    </ui>
+                </div>
+                <div class = "five wide column">
+                    <img alt="" src="./static/img/wechat.jpg" class = "ui right floated rounded bordered image" style = "width: 110px">
+                </div>
+            </div>
+        </div>
+        <div class = "ui bottom attached segment">
+            Visitor comments 留言区域列表
+            <div class = "ui teal segment">
+                <!--列表留言区域 直接copy从semantic ui-->
+                <div class="ui threaded comments">
+                    <h3 class="ui dividing header">Comments</h3>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://picsum.photos/100/100/?random">
+                        </a>
+                        <div class="content">
+                            <a class="author">Matt</a>
+                            <div class="metadata">
+                                <span class="date">Today at 5:42PM</span>
+                            </div>
+                            <div class="text">
+                                How artistic!
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://picsum.photos/100/100/?random">
+                        </a>
+                        <div class="content">
+                            <a class="author">Elliot Fu</a>
+                            <div class="metadata">
+                                <span class="date">Yesterday at 12:30AM</span>
+                            </div>
+                            <div class="text">
+                                <p>This has been very useful for my research. Thanks as well!</p>
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                        <div class="comments">
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="https://picsum.photos/100/100/?random">
+                                </a>
+                                <div class="content">
+                                    <a class="author">Jenny Hess</a>
+                                    <div class="metadata">
+                                        <span class="date">Just now</span>
+                                    </div>
+                                    <div class="text">
+                                        Elliot you are always so right :)
+                                    </div>
+                                    <div class="actions">
+                                        <a class="reply">Reply</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <a class="avatar">
+                            <img src="https://picsum.photos/100/100/?random">
+                        </a>
+                        <div class="content">
+                            <a class="author">Joe Henderson</a>
+                            <div class="metadata">
+                                <span class="date">5 days ago</span>
+                            </div>
+                            <div class="text">
+                                Dude, this is awesome. Thanks so much
+                            </div>
+                            <div class="actions">
+                                <a class="reply">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class = "ui form">
+                <!--提交留言的区域-->
+                <div class = "field">
+                    <textarea name = "content" placeholder= "Please enter your comments..."></textarea>
+                    <div class = "fields m-padded-tb-small">
+                            <div class = "field m-mobile-wide m-margin-bottom-mini">
+                                <div class = "ui left icon input">
+                                    <i class = "ui user icon"></i>
+                                    <input type = "text" name = "nickname" placeholder = "Your Name">
+                                </div>
+                            </div>
+                        <div class = "field m-mobile-wide m-margin-bottom-mini">
+                            <div class = "ui left icon input">
+                                <i class = "ui mail icon"></i>
+                                <input type = "email" name = "email" placeholder = "Your Email">
+                            </div>
+                        </div>
+                        <div class = "field m-mobile-wide m-margin-bottom-mini">
+                            <button class = "ui teal button m-mobile-wide m-margin-bottom-mini"><i class = "edit icon"></i>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--底部footer-->
+<footer class = "ui inverted vertical segment m-padded-tb-massive">
+    <div class = "ui center aligned container">
+        <div class = "ui inverted divided stackable grid">
+            <div class = "three wide column">
+                <div class = "ui inverted link list">
+                    <div class = "item">
+                        <img src="./static/img/wechat.jpg" class ="ui rounded image" alt="" style="width: 100px">
+                    </div>
+                </div>
+            </div>
+            <div class = "three wide column">
+                <div class = "ui inverted link list">
+                    <h4 class = "ui inverted header m-opacity-mini">Recent Blogs</h4>
+                    <a href = "#" class = "item">User Story</a>
+                    <a href = "#" class = "item">User Story</a>
+                    <a href = "#" class = "item">User Story</a>
+                </div>
+        </div>
+        <div class = "three wide column">
+            <div class = "ui inverted link list">
+                <h4 class = "ui inverted header m-opacity-mini">Contact Me</h4>
+                <h6 class = "m-text-thin m-text-spaced m-opacity-mini">Email: jason.z.shieh@gmail.com</h6>
+            </div>
+        </div>
+        <div class = "seven wide column">
+            <h4 class = "ui inverted header m-opacity-mini">Jason Xie</h4>
+            <p class = "m-text-thin m-text-spaced m-opacity-mini">Hi This is Jason Xie and this is my personal blog, I am sharing my codes, thoughts, experience and leetcodes here</p>
+        </div>
+        </div>
+        <div class ="ui inverted section divider"></div>
+        <p class = "m-text-thin m-text-spaced m-opacity-mini">Copyright ⓒ by Jason Xie 2019</p>
+    </div>
+</footer>
+
+<script src = "https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script>
+    <!--jQuery 点击一下就会有,不点击就不会出现side bar 这里我们自己定义了一个m-item, 也只有那几个mobile端隐藏的才有这个clas-->
+    $('.menu.toggle').click(function (){
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    <!--二维码-->
+    $('#payButton').popup({
+        popup: $('.payQR.popup'),
+        on: 'click',
+        position: 'bottom center'
+    });
+</script>
+</body>
+</html>
